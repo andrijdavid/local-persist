@@ -18,6 +18,9 @@ install:
 before_script:
   - docker version
   - make binary-linux-amd64
+  - make binary-linux-armv6
+  - make binary-linux-armv7
+  - make binary-linux-arm64
   - chmod +x bin/linux/amd64/local-persist
   - sudo ./bin/linux/amd64/local-persist &
 
