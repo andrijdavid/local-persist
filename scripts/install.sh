@@ -31,9 +31,17 @@ function setenv {
                 SUPPORTED=false
             ;;
             # untested
-            arm*)
-                # ARCH="arm"
-                SUPPORTED=false
+            armv6*)
+	            ARCH="armv6"
+	            SUPPORTED=true
+	        ;;
+	        armv7*)
+	            ARCH="armv7"
+	            SUPPORTED=true
+	        ;;
+	        "arm64"|"aarch64")
+	            ARCH="arm64"
+	            SUPPORTED=true
             ;;
         esac
     elif [[ $OS == 'freebsd' ]]; then
