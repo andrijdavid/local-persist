@@ -28,6 +28,20 @@ script:
   - ./scripts/integration.sh
   - make test
 
+deploy:
+  provider: releases
+  api_key:
+    secure: "NYP4zinC9df54yrngfaxl3NZXsex3T7GNCMv4ybGEeJ30XqGOUhYVnY0k245Eabws6rlMj/Q9n/10INGYLkI3jcJnuCxQ8atg6dTskmLt6q/IWlEyVgw9U7xkpsWSxwx6Mw9rWRE/sfzfTvWtaZvyr1/F2st3OFQU5Xizc65a5u/7skxok5vyiU42JCeIHBc/dGO/8H133ZNLXQ1MVZqIfwnoO/vdAOohJ2jWBA09ykDyZefCIyHUq9Lr8KtJcUAejbkF9DKaBpC2+Lbo5dLgflSUrhgrCWt3wIxkLXjj5qYJrGuRGOhnebuH02AcJvbcpUE9+b52+tT3gZ5EEF2mKuxsGH3H0xuHS10UYVzx+92TjumDEdETHIBT8FPIVLYCt/WPTP4riCcq6+gJ+O00KXd9XZR/AujgqRgK/CNxltCwAPLkRdcRhJuQPE8k/AtgTAfRqa3CENE7bXJsm8S+P+BTAIzz8sxOjNN7RMuP/XqORWdf2Lw2PEzuANKGPRi01QqoKE/i+4Ju89syR4yvsNaeTxoT+qjL6K0CIBWxwErK6SWM9JdDkyn2WdG+UmsDjdnGX5VV4t0E27H2qNX+/aODNcmRqfBopG7Da9ZTAqhsbcVQo4IWibCKIdsnEUx3iYaC3S6cjcLUWTO/semNfJRDA0zEAPoAvOg8JTumUI="
+  file:
+    - bin/linux/amd64/local-persist
+    - bin/linux/armv6/local-persist
+    - bin/linux/armv7/local-persist
+    - bin/linux/arm64/local-persist
+  skip_cleanup: true
+  draft: true
+  on:
+    tags: true
+
 notifications:
   webhooks:
     urls:
